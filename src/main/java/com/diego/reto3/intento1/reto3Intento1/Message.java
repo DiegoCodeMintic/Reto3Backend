@@ -12,14 +12,16 @@ public class Message {
     private Integer id;
     private  String messageText;
     @ManyToOne
-    @JsonIgnoreProperties({"messages", "client"})
+    @JsonIgnoreProperties({"messages", "doctor","reservations"})
+    @JoinColumn(name="doctor_id")
+    private Doctor doctor;
+
+    @ManyToOne
+    @JsonIgnoreProperties({"messages", "client","reservations"})
     @JoinColumn(name="client_idClient")
     private Client client;
 
-    @ManyToOne
-    @JsonIgnoreProperties({"messages", "doctor"})
-    @JoinColumn(name="doctor_id")
-    private Doctor doctor;
+
 
 
 

@@ -15,7 +15,7 @@ public class Specialty {
     private String name;
     private String description;
     @OneToMany(mappedBy = "specialty")
-    @JsonIgnoreProperties({"doctors", "specialty","messages"})
+    @JsonIgnoreProperties({"doctors", "specialty","messages","reservations"})
     private List<Doctor> doctors;
 
     public Integer getId() {

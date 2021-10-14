@@ -3,11 +3,12 @@ package com.diego.reto3.intento1.reto3Intento1;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "client")
-public class Client {
+public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -18,9 +19,21 @@ public class Client {
     private int age;
 
     @OneToMany(mappedBy = "client")
-    @JsonIgnoreProperties({"messages", "client"})
+    @JsonIgnoreProperties({"messages", "client","reservations"})
     private List<Message> messages;
 
+    @OneToMany(mappedBy = "client")
+    @JsonIgnoreProperties({"reservations", "client","messages"})
+    private List<Reservation> reservations;
+
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
     public List<Message> getMessages() {
         return messages;
