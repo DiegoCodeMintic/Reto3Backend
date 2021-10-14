@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Game")
@@ -20,6 +21,10 @@ public class GameWeb {
     @GetMapping("/all")
     public List<Games> getGame(){
         return  servicios.getAll();
+    }
+    @GetMapping("/{id}")
+    public Optional<Games> getDoctor(@PathVariable("id") int id){
+        return servicios.getGame(id);
     }
 
     @PostMapping("/save")

@@ -1,29 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.diego.reto3.intento1.reto3Intento1;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;
 
-
 @Entity
-@Table(name = "categoria")
-public class Categoria {
-
+@Table(name= "specialty")
+public class Specialty {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String description;
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "categoria")
-    @JsonIgnoreProperties("categoria")
-    private List<Games> games;
-
+    @OneToMany(mappedBy = "specialty")
+    @JsonIgnoreProperties({"doctors", "specialty","messages"})
+    private List<Doctor> doctors;
 
     public Integer getId() {
         return id;
@@ -49,11 +42,11 @@ public class Categoria {
         this.description = description;
     }
 
-    public List<Games> getGames() {
-        return games;
+    public List<Doctor> getDoctors() {
+        return doctors;
     }
 
-    public void setGames(List<Games> games) {
-        this.games = games;
+    public void setDoctors(List<Doctor> doctors) {
+        this.doctors = doctors;
     }
 }
