@@ -13,14 +13,17 @@ import java.util.function.DoubleConsumer;
 public class DoctorWeb {
     @Autowired
     private RepositorioDoctor servicios;
+    @CrossOrigin(origins = "*")
     @GetMapping("/all")
     public List<Doctor> getDoctor(){
         return servicios.getAll();
     }
+    @CrossOrigin(origins = "*")
     @GetMapping("/{id}")
     public Optional<Doctor> getDoctor(@PathVariable("id") int idDoctor){
         return servicios.getDoctor(idDoctor);
     }
+    @CrossOrigin(origins = "*")
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public  Doctor save (@RequestBody Doctor doctor){
