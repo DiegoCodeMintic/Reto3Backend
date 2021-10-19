@@ -14,6 +14,9 @@ public class Reservation implements Serializable {
     private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
+    private String status="created";
+
+
 
     @ManyToOne
     @JsonIgnoreProperties({"reservations"}) //"client")
@@ -26,6 +29,15 @@ public class Reservation implements Serializable {
     private Client client;
 
     private Integer score;
+
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public Integer getScore() {
         return score;
