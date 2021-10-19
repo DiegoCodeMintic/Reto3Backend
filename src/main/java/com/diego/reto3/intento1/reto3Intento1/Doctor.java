@@ -23,11 +23,11 @@ public class Doctor {
     private Specialty specialty;
 
     @OneToMany(mappedBy = "doctor")
-    @JsonIgnoreProperties({"messages", "doctor","reservations"})
+    @JsonIgnoreProperties({ "doctor","client"})
     private List<Message> messages;
 
     @OneToMany(mappedBy = "doctor")
-    @JsonIgnoreProperties({"reservations", "doctor","messages"}) //"client"
+    @JsonIgnoreProperties({ "doctor","messages","client"}) //"client"
     private List<Reservation> reservations;
 
 

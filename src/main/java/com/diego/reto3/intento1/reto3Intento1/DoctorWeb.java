@@ -25,7 +25,7 @@ public class DoctorWeb {
     }
     @CrossOrigin(origins = "*")
     @PostMapping("/save")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public  Doctor save (@RequestBody Doctor doctor){
         return  servicios.save(doctor);
     }

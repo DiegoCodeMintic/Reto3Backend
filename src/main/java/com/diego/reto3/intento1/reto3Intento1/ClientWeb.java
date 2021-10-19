@@ -22,7 +22,7 @@ public class ClientWeb {
         return servicios.getClient(id);
     }
     @PostMapping("/save")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public  Client save (@RequestBody Client doctor){
         return  servicios.save(doctor);
     }

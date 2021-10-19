@@ -21,7 +21,7 @@ public class MessageWeb {
         return servicios.getMessage(id);
     }
     @PostMapping("/save")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public  Message save (@RequestBody Message message){
         return  servicios.save(message);
     }
