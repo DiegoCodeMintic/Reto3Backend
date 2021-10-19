@@ -9,21 +9,22 @@ import java.util.Optional;
 import java.util.function.DoubleConsumer;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/Doctor")
 public class DoctorWeb {
     @Autowired
     private RepositorioDoctor servicios;
-    @CrossOrigin(origins = "*")
+
     @GetMapping("/all")
     public List<Doctor> getDoctor(){
         return servicios.getAll();
     }
-    @CrossOrigin(origins = "*")
+
     @GetMapping("/{id}")
     public Optional<Doctor> getDoctor(@PathVariable("id") int idDoctor){
         return servicios.getDoctor(idDoctor);
     }
-    @CrossOrigin(origins = "*")
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public  Doctor save (@RequestBody Doctor doctor){
