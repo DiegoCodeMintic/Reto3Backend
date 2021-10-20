@@ -10,6 +10,7 @@ public class Message {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer idMessage;
+    @Column(length = 250)
     private  String messageText;
     @ManyToOne
     @JsonIgnoreProperties({"messages", "doctor","reservations"})

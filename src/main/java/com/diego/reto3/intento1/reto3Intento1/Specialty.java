@@ -12,7 +12,9 @@ public class Specialty {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
+    @Column(length = 45)
     private String name;
+    @Column(length = 250)
     private String description;
     @OneToMany(mappedBy = "specialty")
     @JsonIgnoreProperties({"doctors", "specialty","messages","reservations"})

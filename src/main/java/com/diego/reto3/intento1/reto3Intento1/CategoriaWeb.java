@@ -25,7 +25,7 @@ public class CategoriaWeb {
     @CrossOrigin(origins = "*")
     @GetMapping("/holaMundo")
     public String saludar(){
-        return "Hola Mundo Colombia from server diego R";
+        return "Hola Mundo  from server diego R";
     }
     
      @Autowired(required = true)
