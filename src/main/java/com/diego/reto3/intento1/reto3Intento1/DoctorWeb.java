@@ -30,4 +30,17 @@ public class DoctorWeb {
     public  Doctor save (@RequestBody Doctor doctor){
         return  servicios.save(doctor);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Doctor update (@RequestBody Doctor doctor) {
+        return servicios.save(doctor);
+    }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delCategori(@PathVariable("id") int idSpecialty){
+        Doctor doctor = new Doctor();
+        doctor.setId(idSpecialty);
+        return servicios.delete(doctor);
+    }
 }

@@ -22,4 +22,17 @@ public class RepositorioDoctor {
     public Doctor save(Doctor doctor) {
         return crud.save(doctor);
     }
+    public  Doctor update (Doctor doctor){
+        return  crud.save(doctor);
+    }
+    public boolean delete (Doctor doctor){
+        List<Doctor> listaBase = (List<Doctor>) crud.findAll();
+        for(int x =0;x<  listaBase.size();x++){
+            if(doctor.getId()==listaBase.get(x).getId()){
+                crud.delete(doctor);
+                return  true;
+            }
+        }
+        return false;
+    }
 }

@@ -28,5 +28,17 @@ public class ClientWeb {
         return  servicios.save(doctor);
     }
 
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client update (@RequestBody Client client) {
+        return servicios.save(client);
+    }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delCategori(@PathVariable("id") int idClient){
+        Client client = new Client();
+        client.setIdClient(idClient);
+        return servicios.delete(client);
+    }
 
 }

@@ -19,4 +19,21 @@ public class RepositorioClient {
     public Client save(Client client ){
         return crud.save(client);
     }
+
+    public  Client update (Client client){
+        return  crud.save(client);
+    }
+
+
+    public boolean delete (Client client){
+        List<Client> listaBase = (List<Client>) crud.findAll();
+        for(int x =0;x<  listaBase.size();x++){
+            if(client.getIdClient()==listaBase.get(x).getIdClient()){
+                crud.delete(client);
+                return  true;
+            }
+
+        }
+        return false;
+    }
 }
