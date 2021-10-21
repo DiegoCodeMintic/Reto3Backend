@@ -20,7 +20,15 @@ public class RepositorioDoctor {
     }
 
     public Doctor save(Doctor doctor) {
-        return crud.save(doctor);
+        List<Doctor> listaBase = (List<Doctor>) crud.findAll();
+        for(int x =0;x<  listaBase.size();x++){
+            if(doctor.getId()==listaBase.get(x).getId()){
+                doctor.setSpecialty(listaBase.get(x).getSpecialty());
+                return crud.save(doctor);
+
+            }
+        }
+        return null;
     }
     public  Doctor update (Doctor doctor){
         return  crud.save(doctor);
