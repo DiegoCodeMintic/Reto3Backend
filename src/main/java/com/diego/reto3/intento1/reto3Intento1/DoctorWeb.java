@@ -34,7 +34,7 @@ public class DoctorWeb {
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Doctor update (@RequestBody Doctor doctor) {
-        return servicios.save(doctor);
+        return servicios.update(doctor);
     }
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
