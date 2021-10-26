@@ -19,4 +19,23 @@ public class RepositorioAdmin {
     public Admin save(Admin admin) {
         return crud.save(admin);
     }
+    public  Admin update (Admin admin){
+        List<Admin> listaBase = (List<Admin>) crud.findAll();
+        for(int x =0;x<  listaBase.size();x++){
+            if(admin.getId()==listaBase.get(x).getId()){
+                return crud.save(admin);
+            }
+        }
+        return null;
+    }
+    public boolean delete (Admin admin){
+        List<Admin> listaBase = (List<Admin>) crud.findAll();
+        for(int x =0;x<  listaBase.size();x++){
+            if(admin.getId()==listaBase.get(x).getId()){
+                crud.delete(admin);
+                return  true;
+            }
+        }
+        return false;
+    }
 }

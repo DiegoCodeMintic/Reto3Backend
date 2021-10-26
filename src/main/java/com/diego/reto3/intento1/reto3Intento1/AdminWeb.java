@@ -28,4 +28,17 @@ public class AdminWeb {
     public  Admin save (@RequestBody Admin admin){
         return  servicios.save(admin);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Admin update (@RequestBody Admin admin) {
+        return servicios.update(admin);
+    }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delAdmin(@PathVariable("id") int idSpecialty){
+        Admin admin = new Admin();
+        admin.setId(idSpecialty);
+        return servicios.delete(admin);
+    }
 }
