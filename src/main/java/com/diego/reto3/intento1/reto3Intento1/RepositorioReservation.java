@@ -19,4 +19,12 @@ public class RepositorioReservation {
     public Reservation save(Reservation reservation ){
         return crud.save(reservation);
     }
+
+    public  Reservation update (Reservation reservation){
+        return crud.save(reservation);
+    }
+    public boolean delete (Reservation reservation){
+        crud.delete(reservation);
+        return  true;
+    }
 }

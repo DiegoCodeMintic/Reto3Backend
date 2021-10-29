@@ -26,4 +26,17 @@ public class MessageWeb {
     public  Message save (@RequestBody Message message){
         return  servicios.save(message);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Message update (@RequestBody Message message) {
+        return servicios.update(message);
+    }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delMessage(@PathVariable("id") int idMessage){
+        Message message = new Message();
+        message.setIdMessage(idMessage);
+        return servicios.delete(message);
+    }
 }

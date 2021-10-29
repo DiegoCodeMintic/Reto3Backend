@@ -19,4 +19,12 @@ public class RepositorioMessage {
     public Message save(Message message ){
         return crud.save(message);
     }
+
+    public  Message update (Message message){
+        return crud.save(message);
+    }
+    public boolean delete (Message message){
+        crud.delete(message);
+        return  true;
+    }
 }

@@ -27,4 +27,17 @@ public class ReservationWeb {
     public Reservation save(@RequestBody Reservation reservation) {
         return servicios.save(reservation);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation update (@RequestBody Reservation message) {
+        return servicios.update(message);
+    }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delReserva(@PathVariable("id") int idReservation){
+        Reservation reservation = new Reservation();
+        reservation.setIdReservation(idReservation);
+        return servicios.delete(reservation);
+    }
 }

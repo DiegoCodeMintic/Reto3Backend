@@ -38,9 +38,9 @@ public class DoctorWeb {
     }
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delCategori(@PathVariable("id") int idSpecialty){
+    public boolean delDoctor(@PathVariable("id") int idDoctor){
         Doctor doctor = new Doctor();
-        doctor.setId(idSpecialty);
+        doctor.setId(idDoctor);
         return servicios.delete(doctor);
     }
 }
