@@ -14,6 +14,9 @@ import java.util.Optional;
 public class ReservationWeb {
     @Autowired(required = true)
     private RepositorioReservation servicios;
+
+    @Autowired
+    private ServiciosReservation servicio;
     @GetMapping("/all")
     public List<Reservation> getReservation(){
         return servicios.getAll();
@@ -39,5 +42,23 @@ public class ReservationWeb {
         Reservation reservation = new Reservation();
         reservation.setIdReservation(idReservation);
         return servicios.delete(reservation);
+    }
+
+    @GetMapping("/report-status")
+    public StatusReservas getReservas() {
+        return servicio.reporteStatusServicio();
+    }
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservasTiempo(
+            @PathVariable("dateOne") String dateOne,
+            @PathVariable("dateTwo") String dateTwo
+    ) {
+        return servicio.reporteTiempoServicio(dateOne, dateTwo);
+    }
+
+    @GetMapping("/report-clients")
+    public List<ContadorClientes> getClientes() {
+        return servicio.reporteClientesServicio();
     }
 }
